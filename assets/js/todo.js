@@ -9,16 +9,13 @@ $("ul").on("click", "li", function(){
 
 //Click on x to delet
 $("ul").on("click", "span", function(event){
-
-  var index = Number($(this).parent().index("li"));
-  console.log(index);
+  var key = $(this).attr("id");
   $(this).parent().fadeOut(500,function(){
-
-    var songReferenceKey = firebase.database().ref("songList/" + index);
+    var songReferenceKey = firebase.database().ref("songList/" + key);
     songReferenceKey.remove();
-
+    $(this).remove();
   });
-  $(this).remove();
+
 
   event.stopPropagation();
 });
@@ -30,10 +27,9 @@ $("input[type='text']").keypress(function(event){
       var listText = $(this).val();
       $(this).val("");
       //Create a new li and add to ul
-      var newIndex  = $("li").length;
-
+      var newPostKey = firebase.database().ref("songList/").push().key;
       var songUpdate = {};
-      songUpdate["songList/" + newIndex + "/"] = {
+      songUpdate["songList/" + newPostKey + "/"] = {
         "Title" : listText
       };
 

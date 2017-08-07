@@ -14,7 +14,7 @@
 <body>
   <div id="container">
     <h1>Songs <i class="fa fa-plus"></i></h1>
-    <input type="text" placeholder="Add New Todo">
+    <input type="text" placeholder="Add New Song">
     <ul>
 
     </ul>
@@ -37,22 +37,19 @@
     var database = firebase.database();
     const songRef = firebase.database().ref("songList");
 
-    console.log(database);
     var loaded = false;
     songRef.once('value').then(function(snapshot) {
       var songList = snapshot.val()
-      if (songList.length>0 ) { //If there is a songList
+      if (songList) { //If there is a songList
         if(loaded){
           console.log("This should never run");
-          // $("ul").html("")
-          // for (var i = 0; i < songList.length; i++) {
-          //   const song = songList[i]["Title"];
-          //   $("ul").append("<li><span><i class='fa fa-trash'></i></span> " + song + "</li>");
-          // }
+
         } else {
-          for (var i = 0; i < songList.length; i++) {
-            const song = songList[i]["Title"];
-            $("ul").append("<li><span><i class='fa fa-trash'></i></span> " + song + "</li>");
+          console.log(songList);
+
+          for (var songItem in songList){
+            const song = songList[songItem]["Title"];
+            $("ul").append("<li><span id='" + songItem + "'><i class='fa fa-trash'></i></span> " + song + "</li>");
           }
           loaded = true;
         }
@@ -71,11 +68,13 @@
 
     });
 
-    songRef.on('child_removed', function(snapshot) {
-      var song = snapshot.val()
-      //need to restructure list
-
-    });
+    // This function is not really needed
+    // songRef.on('child_removed', function(snapshot) {
+    //   console.log("Something was removed")
+    //   // var song = snapshot.val()
+    //   //need to restructure list
+    //
+    // });
   </script>
   <script type="text/javascript" src="assets/js/todo.js"></script>
 </body>
