@@ -1,24 +1,83 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>To Do List</title>
-    <script type="text/javascript" src="assets/js/lib/jquery-3.2.1.min.js">
-    </script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/css/todo.css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  </head>
-  <body>
-    <div id="container">
-      <h1>To-do List <i class="fa fa-plus"></i></h1>
-      <input type="text" placeholder="Add New Todo">
-      <ul>
-        <li><span><i class="fa fa-trash"></i></span> Potions</li>
-        <li><span><i class="fa fa-trash"></i></span> Aagag</li>
-        <li><span><i class="fa fa-trash"></i></span> Aagagag</li>
-      </ul>
-    </div>
-    <script type="text/javascript" src="assets/js/todo.js"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Song List</title>
+  <script type="text/javascript" src="assets/js/lib/jquery-3.2.1.min.js">
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/css/todo.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+
+<body>
+  <div id="container">
+    <h1>Songs <i class="fa fa-plus"></i></h1>
+    <input type="text" placeholder="Add New Todo">
+    <ul>
+
+    </ul>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyADayB4YtXg3xRbJN0AJCWFW6JeXvkYiOg",
+      authDomain: "mini-lista.firebaseapp.com",
+      databaseURL: "https://mini-lista.firebaseio.com",
+      projectId: "mini-lista",
+      storageBucket: "mini-lista.appspot.com",
+      messagingSenderId: "717006730216"
+    };
+
+    firebase.initializeApp(config);
+
+    var database = firebase.database();
+    const songRef = firebase.database().ref("songList");
+
+    console.log(database);
+    var loaded = false;
+    songRef.once('value').then(function(snapshot) {
+      var songList = snapshot.val()
+      if (songList.length>0 ) { //If there is a songList
+        if(loaded){
+          console.log("This should never run");
+          // $("ul").html("")
+          // for (var i = 0; i < songList.length; i++) {
+          //   const song = songList[i]["Title"];
+          //   $("ul").append("<li><span><i class='fa fa-trash'></i></span> " + song + "</li>");
+          // }
+        } else {
+          for (var i = 0; i < songList.length; i++) {
+            const song = songList[i]["Title"];
+            $("ul").append("<li><span><i class='fa fa-trash'></i></span> " + song + "</li>");
+          }
+          loaded = true;
+        }
+
+      } else {
+        $("ul").append("<li><span><i class='fa fa-trash'></i></span> " + "Add Items Above!" + "</li>");
+      }
+    });
+
+    songRef.on('child_added', function(snapshot) {
+      var song = snapshot.val()
+        if(loaded){
+          var song = song["Title"];
+          $("ul").append("<li><span><i class='fa fa-trash'></i></span> " + song + "</li>");
+          }
+
+    });
+
+    songRef.on('child_removed', function(snapshot) {
+      var song = snapshot.val()
+      //need to restructure list
+
+    });
+  </script>
+  <script type="text/javascript" src="assets/js/todo.js"></script>
+</body>
+
 </html>
