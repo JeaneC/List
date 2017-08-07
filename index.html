@@ -12,12 +12,33 @@
 </head>
 
 <body>
-  <div id="container">
-    <h1>Songs <i class="fa fa-plus"></i></h1>
-    <input type="text" placeholder="Add New Song">
+  <!-- <div id="leftPanel">
     <ul>
-
+      <li>John</li>
+      <li>Luvn</li>
+      <li>Saif</li>
     </ul>
+  </div> -->
+  <div id="container">
+    <h1><div class="fa fa-bars dropdown">
+      <div class="dropdown-content">
+        <ul>
+          <li>Songs</li>
+          <li>Events</li>
+          <li>Reminders</li>
+      </ul>
+      </div>
+    </div>
+     Songs <i class="fa fa-plus"></i>
+
+
+
+     </h1>
+    <input type="text" placeholder="Add New Song">
+    <ul id="list"></ul>
+
+    <h1> &nbsp;</h1>
+
   </div>
 
   <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
@@ -49,13 +70,13 @@
 
           for (var songItem in songList){
             const song = songList[songItem]["Title"];
-            $("ul").append("<li><span id='" + songItem + "'><i class='fa fa-trash'></i></span> " + song + "</li>");
+            $("ul#list").append("<li><span id='" + songItem + "'><i class='fa fa-trash'></i></span> " + song + "</li>");
           }
           loaded = true;
         }
 
       } else {
-        $("ul").append("<li><span><i class='fa fa-trash'></i></span> " + "Add Items Above!" + "</li>");
+        $("ul#list").append("<li><span><i class='fa fa-trash'></i></span> " + "Add Items Above!" + "</li>");
       }
     });
 
@@ -63,7 +84,7 @@
       var song = snapshot.val()
         if(loaded){
           var song = song["Title"];
-          $("ul").append("<li><span><i class='fa fa-trash'></i></span> " + song + "</li>");
+          $("ul#list").append("<li><span><i class='fa fa-trash'></i></span> " + song + "</li>");
           }
 
     });

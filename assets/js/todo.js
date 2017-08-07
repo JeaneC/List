@@ -1,14 +1,14 @@
 // Check off specific Todos
 
-$("ul").on("click", "li", function(){
+$("ul#list").on("click", "li", function(){
   //if li is gray, turn it to black, else turn it to
   //grey
   $(this).toggleClass("completed");
 
 });
 
-//Click on x to delet
-$("ul").on("click", "span", function(event){
+//Click on x to delete
+$("ul#list").on("click", "span", function(event){
   var key = $(this).attr("id");
   $(this).parent().fadeOut(500,function(){
     var songReferenceKey = firebase.database().ref("songList/" + key);
@@ -21,6 +21,7 @@ $("ul").on("click", "span", function(event){
 });
 
 
+//User Presses Enter
 $("input[type='text']").keypress(function(event){
   if(event.which ===13){
     if($(this).val() != ""){

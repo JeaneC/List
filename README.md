@@ -21,3 +21,7 @@ Version
 1.00 - __Commit Firebase Complete__
   - Changed the way the JSON database was structured, the songs are now stored in dictionaries instead of lists
   - Because of the above change, adding items was completely changed, but now removing items works for anything.
+
+1.10 - __Commit Multiple__
+  - Changed Design
+  - Awaiting a way to load multiple lists
