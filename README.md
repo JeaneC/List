@@ -25,3 +25,8 @@ Version
 1.10 - __Commit Multiple__
   - Changed Design
   - Awaiting a way to load multiple lists
+
+1.80 - __Commit Multiple X__
+  - Changed Design
+  - Bug Fix: Couldn't delete new items unless the page was refreshed
+  - Almost done with allowing load multiple list

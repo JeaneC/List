@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Song List</title>
+  <title>Item List</title>
   <script type="text/javascript" src="assets/js/lib/jquery-3.2.1.min.js">
   </script>
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -14,30 +14,30 @@
 <body>
   <!-- <div id="leftPanel">
     <ul>
-      <li>John</li>
-      <li>Luvn</li>
-      <li>Saif</li>
+
     </ul>
   </div> -->
   <div id="container">
-    <h1><div class="fa fa-bars dropdown">
+    <h1 id="top"><div class="fa fa-bars dropdown">
       <div class="dropdown-content">
-        <ul>
-          <li>Songs</li>
-          <li>Events</li>
-          <li>Reminders</li>
-      </ul>
+        <ul id="categories">
+          <input id="title" type="text" placeholder="Enter Room Here....">
+          <li>John</li>
+          <li>Saif</li>
+          <li>Luvneesh</li>
+        </ul>
+
       </div>
     </div>
-     Songs <i class="fa fa-plus"></i>
+     <span id="header">Items</span> <i class="fa fa-plus"></i>
 
 
 
      </h1>
-    <input type="text" placeholder="Add New Song">
+    <input id="add" type="text" placeholder="Add New Item">
     <ul id="list"></ul>
 
-    <h1> &nbsp;</h1>
+    <h1 id="bottom"> &nbsp;</h1>
 
   </div>
 
@@ -55,44 +55,43 @@
 
     firebase.initializeApp(config);
 
+    var listTitle = "Items"
     var database = firebase.database();
-    const songRef = firebase.database().ref("songList");
-
+    var mainRef = firebase.database().ref(listTitle);
     var loaded = false;
-    songRef.once('value').then(function(snapshot) {
-      var songList = snapshot.val()
-      if (songList) { //If there is a songList
+
+    mainRef.once('value').then(function(snapshot) {
+      var itemList = snapshot.val()
+      console.log(itemList)
+      if (itemList) { //If there is a item
         if(loaded){
-          console.log("This should never run");
-
         } else {
-          console.log(songList);
-
-          for (var songItem in songList){
-            const song = songList[songItem]["Title"];
-            $("ul#list").append("<li><span id='" + songItem + "'><i class='fa fa-trash'></i></span> " + song + "</li>");
+          for (var itemKey in itemList){
+            const item = itemList[itemKey]["Title"];
+            $("ul#list").append("<li><span id='" + itemKey + "'><i class='fa fa-trash'></i></span> " + item + "</li>");
           }
           loaded = true;
         }
 
       } else {
-        $("ul#list").append("<li><span><i class='fa fa-trash'></i></span> " + "Add Items Above!" + "</li>");
+        loaded = true;
+        //$("ul#list").append("<li><span><i class='fa fa-trash'></i></span> " + "Add Items Above!" + "</li>");
       }
     });
 
-    songRef.on('child_added', function(snapshot) {
-      var song = snapshot.val()
+    mainRef.on('child_added', function(snapshot) {
+      var itemList = snapshot.val()
         if(loaded){
-          var song = song["Title"];
-          $("ul#list").append("<li><span><i class='fa fa-trash'></i></span> " + song + "</li>");
+          var item = itemList["Title"];
+          $("ul#list").append("<li><span id='" + snapshot.key + "'><i class='fa fa-trash'></i></span> " + item + "</li>");
           }
 
     });
 
     // This function is not really needed
-    // songRef.on('child_removed', function(snapshot) {
+    // mainRef.on('child_removed', function(snapshot) {
     //   console.log("Something was removed")
-    //   // var song = snapshot.val()
+    //   // var Item = snapshot.val()
     //   //need to restructure list
     //
     // });

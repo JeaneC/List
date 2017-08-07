@@ -14,10 +14,18 @@ h1 {
   text-transform: capitalize;
   font-size: 24px;
   text-align: center;
-
   font-weight: normal;
 }
 
+h1#top {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+h1#bottom {
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
 
 span {
   background: #e74c3c;
@@ -37,18 +45,58 @@ ul {
   margin: 0;
   padding: 0;
 }
-
+/*
 div div ul{
   color: white;
   padding: 10%;
-  height: 2%;
+  padding-left: 5%;
+}*/
+
+div div ul#categories{
+  color: white;
+  padding: 10%;
   font-size: 20px;
 }
 
-div div ul li{
+div div ul#categories li{
   text-transform: capitalize;
   padding-top: 10%;
 
+}
+
+input#title{
+  font-size: 12px;
+  background-color: #670000;
+  outline: none;
+
+  margin-left: 2%;
+  margin-bottom: 0%;
+  width: 80%;
+  /*padding: 13px 13px 13px 20px;*/
+  box-sizing: border-box;
+  border: none;
+}
+input#title{
+  font-size: 20px;
+  color: white;
+}
+
+input#title::-webkit-input-placeholder {
+color: white;
+font-size: 18px;
+}
+
+input#title:-moz-placeholder { /* Firefox 18- */
+color: white;
+font-size: 18px;
+}
+
+input#title::-moz-placeholder {  /* Firefox 19+ */
+color: white;
+}
+
+input#title:-ms-input-placeholder {
+color: white;
 }
 
 div#container ul#list li {
@@ -67,7 +115,8 @@ div#container ul#list li:hover span{
   opacity: 1.0;
 }
 
-input {
+
+input#add {
   font-size: 18px;
   color: #200122;
   background-color: #f7f7f7;
@@ -75,14 +124,15 @@ input {
   padding: 13px 13px 13px 20px;
   box-sizing: border-box;
   border: 3px solid rgba(0,0,0,0);
+  outline: none;
 
 }
 
-input:focus{
+input#add:focus{
   background: #fff;
   border: 3px solid #2980b9;
 }
-input, input:focus{
+input#add, input#add:focus{
   outline: none;
   -webkit-appearance:none;
 }
@@ -107,9 +157,6 @@ input, input:focus{
 }
 
 
-.dropdown:hover .dropdown-content {
-    display: block;
-}
 
 .fa-plus{
   float: right;
@@ -119,7 +166,13 @@ input, input:focus{
   float: left;
 }
 
-.fa-bars:hover .dropdown-content{
+/*.fa-bars:hover .dropdown-content{
+  display: block;
+}*/
+
+
+
+.displayBlock{
   display: block;
 }
 
@@ -131,6 +184,7 @@ input, input:focus{
   padding-top: 10%;*/
   padding
   background: #f7f7f7;
+  border-radius: 25px;
 }
 
 
