@@ -22,14 +22,14 @@
       <div class="dropdown-content">
         <ul id="categories">
           <input id="title" type="text" placeholder="Enter Room Here....">
-          <li>John</li>
+          <!-- <li>John</li>
           <li>Saif</li>
-          <li>Luvneesh</li>
+          <li>Luvneesh</li> -->
         </ul>
 
       </div>
     </div>
-     <span id="header">Items</span> <i class="fa fa-plus"></i>
+     <span id="header">Instructions</span> <i class="fa fa-plus"></i>
 
 
 
@@ -55,7 +55,7 @@
 
     firebase.initializeApp(config);
 
-    var listTitle = "Items"
+    var listTitle = "Instructions"
     var database = firebase.database();
     var mainRef = firebase.database().ref(listTitle);
     var loaded = false;
@@ -68,14 +68,14 @@
         } else {
           for (var itemKey in itemList){
             const item = itemList[itemKey]["Title"];
-            $("ul#list").append("<li><span id='" + itemKey + "'><i class='fa fa-trash'></i></span> " + item + "</li>");
+            $("ul#list").append("<li><span class='item'  id='" + itemKey + "'><i class='fa fa-trash'></i></span> " + item + "</li>");
           }
           loaded = true;
         }
 
       } else {
         loaded = true;
-        //$("ul#list").append("<li><span><i class='fa fa-trash'></i></span> " + "Add Items Above!" + "</li>");
+        //$("ul#list").append("<li><span class="item" ><i class='fa fa-trash'></i></span> " + "Add Items Above!" + "</li>");
       }
     });
 
@@ -83,7 +83,7 @@
       var itemList = snapshot.val()
         if(loaded){
           var item = itemList["Title"];
-          $("ul#list").append("<li><span id='" + snapshot.key + "'><i class='fa fa-trash'></i></span> " + item + "</li>");
+          $("ul#list").append("<li><span class='item'  id='" + snapshot.key + "'><i class='fa fa-trash'></i></span> " + item + "</li>");
           }
 
     });

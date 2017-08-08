@@ -30,3 +30,12 @@ Version
   - Changed Design
   - Bug Fix: Couldn't delete new items unless the page was refreshed
   - Almost done with allowing load multiple list
+
+2.00 - __Commit Multiple Complete__
+  - Now displays instructions on load that can't be changed
+  - Has natural list functionality
+  - _Next: Will add a date/time feature that will probably show when a list item is clicked_
+  - _Next: Will allow the user to change the default list show on startup_
+  - _Next: May add custom user login to prevent other users from changing lists_
+
+  

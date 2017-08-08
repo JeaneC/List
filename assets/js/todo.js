@@ -26,7 +26,7 @@ $("input#title").keypress(function(event){
     loaded = false;
     listTitle = $(this).val();
     $(this).val("");
-    $('#header').val(listTitle);
+    $('#header').html(listTitle);
     if(!toggled){
       $(".dropdown-content").css('display', 'block');
       toggled = !toggled;
@@ -35,40 +35,41 @@ $("input#title").keypress(function(event){
       toggled = !toggled;
     }
 
-    mainRef = firebase.database().ref(listTitle);
+    mainRef = firebase.database().ref("guest/" + listTitle);
 
     //Change Rooms
+    mainRef.off();
 
     mainRef.once('value').then(function(snapshot) {
+
       var itemList = snapshot.val()
+
+      $('ul#list').html('');
       if (itemList) { //If there is a item
         if(loaded){
-          console.log("This should never run");
-
         } else {
-          // $("ul#list").html('');
           for (var itemKey in itemList){
-            const item = itemList[item]["Title"];
-            $("ul#list").append("<li><span id='" + itemKey + "'><i class='fa fa-trash'></i></span> " + item + "</li>");
+            const item = itemList[itemKey]["Title"];
+            $("ul#list").append("<li><span class='item'  id='" + itemKey + "'><i class='fa fa-trash'></i></span> " + item + "</li>");
           }
           loaded = true;
         }
 
       } else {
         loaded = true;
-        //$("ul#list").append("<li><span><i class='fa fa-trash'></i></span> " + "Add Items Above!" + "</li>");
+        //$("ul#list").append("<li><span class="item" ><i class='fa fa-trash'></i></span> " + "Add Items Above!" + "</li>");
       }
     });
-    mainRef.off();
 
     mainRef.on('child_added', function(snapshot) {
       var itemList = snapshot.val()
         if(loaded){
           var item = itemList["Title"];
-          $("ul#list").append("<li><span><i class='fa fa-trash'></i></span> " + item + "</li>");
+          $("ul#list").append("<li><span class='item'  id='" + snapshot.key + "'><i class='fa fa-trash'></i></span> " + item + "</li>");
           }
 
     });
+
   }
 
   event.stopPropagation();
@@ -92,7 +93,7 @@ $(".fa-bars").on("click", function(){
 $("ul#list").on("click", "span", function(event){
   var key = $(this).attr("id");
   $(this).parent().fadeOut(500,function(){
-    var itemReferenceKey = firebase.database().ref(listTitle + "/" + key);
+    var itemReferenceKey = firebase.database().ref("guest/" + listTitle + "/" + key);
     itemReferenceKey.remove();
     $(this).remove();
   });
@@ -109,9 +110,10 @@ $("input#add").keypress(function(event){
       var listText = $(this).val();
       $(this).val("");
       //Create a new li and add to ul
-      var newPostKey = firebase.database().ref(listTitle +"/").push().key;
+      //
+      var newPostKey = firebase.database().ref("guest/" + listTitle +"/").push().key;
       var itemUpdate = {};
-      itemUpdate[listTitle + "/" + newPostKey + "/"] = {
+      itemUpdate["guest/" + listTitle + "/" + newPostKey + "/"] = {
         "Title" : listText
       };
 
