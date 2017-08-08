@@ -1,4 +1,4 @@
-# Mini-List
+# jList
 ### __Description__: A simple online list in which you can modify its contents.
 
 Version
@@ -38,4 +38,5 @@ Version
   - _Next: Will allow the user to change the default list show on startup_
   - _Next: May add custom user login to prevent other users from changing lists_
 
-  
+2.50 - __Commit Bookmark__
+  - You can now add bookmarks by adding a # to the end of the url

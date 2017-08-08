@@ -110,7 +110,7 @@ $("input#add").keypress(function(event){
       var listText = $(this).val();
       $(this).val("");
       //Create a new li and add to ul
-      //
+      //"guest/" +
       var newPostKey = firebase.database().ref("guest/" + listTitle +"/").push().key;
       var itemUpdate = {};
       itemUpdate["guest/" + listTitle + "/" + newPostKey + "/"] = {
