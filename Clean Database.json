@@ -1,0 +1,25 @@
+{
+  "Instructions" : {
+    "-KqzAhRZAQ49UBexE_Pn" : {
+      "Title" : "To create or join a room click the top left icon"
+    },
+    "-KqzB-rY1GyXfsFj6AzF" : {
+      "Title" : "You can hover or click an item to see the delete icon"
+    },
+    "-KqzB3nhuhTmoOwRzhY9" : {
+      "Title" : "Clicking an item also gives it a strike through"
+    },
+    "-KqzBAhwjCGJWLy9iQvm" : {
+      "Title" : "The 'plus' icon on the top right will hide the input field for adding items"
+    },
+    "-KqzDrnKXcCfv4NZ-qsz" : {
+      "Title" : "This list is locked so all changes here are not permanent"
+    },
+    "-KqzITd-GqjP7-YknLxE" : {
+      "Title" : "These instructions will only show on initial load or reload"
+    },
+    "-KqzIXUaXGU-IoouQ50d" : {
+      "Title" : "For the code and full list of features go to https://github.com/JeaneC/Mini-List"
+    }
+  }
+}

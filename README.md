@@ -34,9 +34,13 @@ Version
 2.00 - __Commit Multiple Complete__
   - Now displays instructions on load that can't be changed
   - Has natural list functionality
-  - _Next: Will add a date/time feature that will probably show when a list item is clicked_
-  - _Next: Will allow the user to change the default list show on startup_
-  - _Next: May add custom user login to prevent other users from changing lists_
+  - _Upcoming: Will add a date/time feature that will probably show when a list item is clicked_
+  - _Upcoming: Will allow the user to change the default list show on startup_
+  - _Upcoming: May add custom user login to prevent other users from changing lists_
 
 2.50 - __Commit Bookmark__
   - You can now add bookmarks by adding a # to the end of the url
+
+2.75 - __Commit Bookmark X__
+  - Bug Fix: Bookmarks sometimes double loaded
+  - Refactored a lot of the code

@@ -1,10 +1,13 @@
 body {
   font-family: 'Roboto', sans-serif;
-  background: #200122;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #6f0000, #200122);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #6f0000, #200122); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #200122;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #6f0000, #200122);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #6f0000, #200122);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   margin: 0 auto;
-  }
+}
 
 h1 {
   background: #670003;
@@ -39,14 +42,15 @@ li span {
   opacity: 0;
 }
 
-span#header {
+span#header {}
 
-}
 ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
+
+
 /*
 div div ul{
   color: white;
@@ -54,19 +58,34 @@ div div ul{
   padding-left: 5%;
 }*/
 
-div div ul#categories{
+div div ul#categories {
   color: white;
   padding: 10%;
   font-size: 20px;
 }
 
-div div ul#categories li{
+div div ul#categories li {
   text-transform: capitalize;
   padding-top: 10%;
-
 }
 
-input#title{
+div#container ul#list li {
+  background: #fff;
+  height: 40px;
+  line-height: 40px;
+  color: #666;
+}
+
+div#container ul#list li:nth-child(2n) {
+  background: #f7f7f7;
+}
+
+div#container ul#list li:hover span {
+  width: 40px;
+  opacity: 1.0;
+}
+
+input#title {
   font-size: 20px;
   background-color: #670003;
   outline: none;
@@ -79,41 +98,25 @@ input#title{
   border: none;
 }
 
-
 input#title::-webkit-input-placeholder {
-color: white;
-font-size: 18px;
+  color: white;
+  font-size: 18px;
 }
 
-input#title:-moz-placeholder { /* Firefox 18- */
-color: white;
-font-size: 18px;
+input#title:-moz-placeholder {
+  /* Firefox 18- */
+  color: white;
+  font-size: 18px;
 }
 
-input#title::-moz-placeholder {  /* Firefox 19+ */
-color: white;
+input#title::-moz-placeholder {
+  /* Firefox 19+ */
+  color: white;
 }
 
 input#title:-ms-input-placeholder {
-color: white;
+  color: white;
 }
-
-div#container ul#list li {
-  background: #fff;
-  height: 40px;
-  line-height: 40px;
-  color: #666;
-}
-
-div#container ul#list li:nth-child(2n){
-  background: #f7f7f7;
-}
-
-div#container ul#list li:hover span{
-  width: 40px;
-  opacity: 1.0;
-}
-
 
 input#add {
   font-size: 18px;
@@ -122,28 +125,26 @@ input#add {
   width: 100%;
   padding: 13px 13px 13px 20px;
   box-sizing: border-box;
-  border: 3px solid rgba(0,0,0,0);
+  border: 3px solid rgba(0, 0, 0, 0);
   outline: none;
-
 }
 
-input#add:focus{
+input#add:focus {
   background: #fff;
   border: 3px solid #2980b9;
 }
-input#add, input#add:focus{
+
+input#add, input#add:focus {
   outline: none;
-  -webkit-appearance:none;
+  -webkit-appearance: none;
 }
-
-
 
 .completed {
   color: gray;
   text-decoration: line-through;
 }
 
-.dropdown-content{
+.dropdown-content {
   display: none;
   position: absolute;
   left: 0;
@@ -151,44 +152,39 @@ input#add, input#add:focus{
   margin-left: 20%;
   background-color: #670003;
   min-width: 10%;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
-
-
-.fa-plus{
+.fa-plus {
   float: right;
 }
 
-.fa-bars{
+.fa-bars {
   float: left;
 }
+
 
 /*.fa-bars:hover .dropdown-content{
   display: block;
 }*/
 
-
-
-.displayBlock{
+.displayBlock {
   display: block;
 }
 
 #container {
-  box-shadow: 0 0 3px rgba(0,0,0, 0.1);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   width: 60%;
   margin: 100px auto;
   /*margin-left: 20%;
   padding-top: 10%;*/
-  padding
-  background: #f7f7f7;
+  padding background: #f7f7f7;
   border-radius: 25px;
 }
 
-
 #leftPanel {
-  box-shadow: 0 0 3px rgba(0,0,0, 0.1);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   width: 5%;
   height: 100vh;
   margin-left: 0;

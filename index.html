@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Item List</title>
+  <title>Instructions</title>
   <script type="text/javascript" src="assets/js/lib/jquery-3.2.1.min.js">
   </script>
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -61,62 +61,6 @@
     var mainRef = firebase.database().ref(listTitle);
     var urlSave = document.location['href'];
 
-    var loaded = false;
-    mainRef.once('value').then(function(snapshot) {
-      var itemList = snapshot.val()
-      console.log(itemList)
-      if (itemList) { //If there is a item
-        if(loaded){
-        } else {
-          for (var itemKey in itemList){
-            const item = itemList[itemKey]["Title"];
-            $("ul#list").append("<li><span class='item'  id='" + itemKey + "'><i class='fa fa-trash'></i></span> " + item + "</li>");
-          }
-          loaded = true;
-        }
-
-      } else {
-        loaded = true;
-        //$("ul#list").append("<li><span class="item" ><i class='fa fa-trash'></i></span> " + "Add Items Above!" + "</li>");
-      }
-    });
-    // -----
-
-
-
-    if(urlSave.includes("#")){
-      loaded = false;
-      console.log(loaded)
-      var mainBookmark = urlSave.substr(urlSave.indexOf("#")+1)
-      mainRef = firebase.database().ref("guest/" + mainBookmark);
-      var listTitle = mainBookmark;
-      $('#header').html(listTitle);
-      mainRef.off();
-
-      mainRef.once('value').then(function(snapshot) {
-        var itemList = snapshot.val()
-
-        $('ul#list').html('');
-        if (itemList) { //If there is a item
-            for (var itemKey in itemList){
-              console.log(itemKey);
-              const item = itemList[itemKey]["Title"];
-              $("ul#list").append("<li><span class='item'  id='" + itemKey + "'><i class='fa fa-trash'></i></span> " + item + "</li>");
-            }
-        }
-      });
-
-
-    }
-
-    mainRef.on('child_added', function(snapshot) {
-      var itemList = snapshot.val()
-        if(loaded){
-          var item = itemList["Title"];
-          $("ul#list").append("<li><span class='item'  id='" + snapshot.key + "'><i class='fa fa-trash'></i></span> " + item + "</li>");
-          }
-
-    });
 
 
     // This function is not really needed
