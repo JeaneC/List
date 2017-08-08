@@ -7,19 +7,28 @@
       "Title" : "You can hover or click an item to see the delete icon"
     },
     "-KqzB3nhuhTmoOwRzhY9" : {
-      "Title" : "Clicking an item also gives it a strike through"
+      "Title" : "Double clicking an item crosses it off"
     },
     "-KqzBAhwjCGJWLy9iQvm" : {
       "Title" : "The 'plus' icon on the top right will hide the input field for adding items"
     },
-    "-KqzDrnKXcCfv4NZ-qsz" : {
+    "-KqzXzuSTuS834HiXJ7w" : {
+      "Title" : "Add #roomName at the end of a URL for easy access or bookmarking"
+    },
+    "-KqzY5-zewWZPQssOPFf" : {
+      "Title" : "For example to bookmark the Songs room - jisy.me/jList#Songs or jisy.me/jList/#Songs - both work."
+    },
+    "-KqzY84HjL2LE99ZJh7N" : {
+      "Title" : "You can include basic html in your items such as &lt;b&gt;<b>bold</b>&lt;/b&gt;, &lt;i&gt;<i>Italics</i>&lt;/i&gt;, &lt;u&gt;<u>Underline</u>&lt;/u&gt;\""
+    },
+    "-KqzY9h7F9bhDvoUlNDH" : {
       "Title" : "This list is locked so all changes here are not permanent"
     },
-    "-KqzITd-GqjP7-YknLxE" : {
-      "Title" : "These instructions will only show on initial load or reload"
+    "-KqzYAjRTqK4AkDeW_Bx" : {
+      "Title" : "These instructions will only show on initial load or on a clean reload"
     },
-    "-KqzIXUaXGU-IoouQ50d" : {
-      "Title" : "For the code and full list of features go to https://github.com/JeaneC/Mini-List"
+    "-KqzglYlsLPcdWCmvbeN" : {
+      "Title" : "For the code and full list of features go to the <a target=\\\"_blank\\\" href='https://github.com/JeaneC/jList'>GitHub Project</a>"
     }
   }
 }

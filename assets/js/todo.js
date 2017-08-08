@@ -52,7 +52,7 @@ $("ul#categories").on("click", "li", function() {
 
 });
 
-$("ul#list").on("click", "li", function() {
+$("ul#list").on("dblclick", "li", function() {
   $(this).toggleClass("completed");
 
 });
