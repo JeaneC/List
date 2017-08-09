@@ -168,6 +168,12 @@ input#add, input#add:focus {
   float: left;
 }
 
+#manual {
+  float: right;
+  text-decoration: none;
+  color: white;
+}
+
 
 /*.fa-bars:hover .dropdown-content{
   display: block;
